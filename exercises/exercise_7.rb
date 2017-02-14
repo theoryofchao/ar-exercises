@@ -12,7 +12,7 @@ puts "----------"
 # Your code goes here ...
 puts "Input a new store name"
 
-@query = gets.chomp
+#@query = gets.chomp
 
 #@new_store = Store.new(name: @query);
 
