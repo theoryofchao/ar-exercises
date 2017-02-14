@@ -5,7 +5,14 @@ class Store < ActiveRecord::Base
   validates :name, length: {minimum: 3}
   validates :annual_revenue, numericality: {only_integer: true, greater_than_or_equal: 0}
   validate :must_carry_men_or_women
-  
+
+  before_destroy :check_if_store_empty
+
+  private
+    def check_if_store_empty
+      return true if employees.count == 0
+      throw :abort
+    end
 
   def must_carry_men_or_women
     if(!womens_apparel && !mens_apparel)

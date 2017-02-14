@@ -36,9 +36,11 @@ ActiveRecord::Schema.define do
     table.references :store
     table.column :first_name, :string
     table.column :last_name, :string
+    table.column :password, :string
     table.column :hourly_rate, :integer
     table.timestamps null: false
   end
 end
 
 puts 'Setup DONE'
+
